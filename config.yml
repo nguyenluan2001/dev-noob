@@ -52,8 +52,9 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "dev-noob"
-    icon: /apple-touch-icon.png
+    # text: "dev-noob"
+    text: "</noob>"
+    # icon: photos/noob.jpg
     iconHeight: 35
 
   # profile-mode
@@ -74,7 +75,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Hi there \U0001F44B"
-    Content: Welcome to my blog
+    Content: Welcome to dev-noob where i share my journey from a noob to conquer big tech 
 
 #   socialIcons:
 #     - name: twitter
@@ -97,10 +98,10 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/<path_to_repo>/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+#   editPost:
+#     URL: "https://github.com/<path_to_repo>/content"
+#     Text: "Suggest Changes" # edit text
+#     appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -140,3 +141,15 @@ markup:
     # guessSyntax: true
     lineNos: true
     # style: monokai
+  asciidocExt:
+    attributes: {}
+    backend: html5
+    extensions: []
+    failureLevel: fatal
+    noHeaderOrFooter: true
+    preserveTOC: false
+    safeMode: true
+    sectionNumbers: false
+    trace: false
+    verbose: false
+    workingFolderCurrent: false
