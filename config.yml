@@ -1,4 +1,6 @@
-baseURL: "https://nguyenluan2001.github.io/dev-noob/"
+# baseURL: "https://nguyenluan2001.github.io/dev-noob/"
+# baseURL: "https://nguyenluan2001.github.io/dev-noob/"
+baseURL: "/"
 title: dev-noob
 paginate: 5
 theme: PaperMod

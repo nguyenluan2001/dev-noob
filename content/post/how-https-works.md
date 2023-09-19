@@ -42,12 +42,12 @@ Welcome back! Today I will introduce to you another interesting topic: "How HTTP
 HTTP stands for Hyper Text Transfer Protocol, It is a protocol used to connect devices on the internet. So, how can devices connect through HTTP?
 
 Take a look at the picture.
-![avatar](/dev-noob/photos/how-https-works/1.png)
+![avatar](/photos/how-https-works/1.png)
 
 Basically, the user will create a request to a server with some data; in this case, the data is `{name: John, password: 123}`. When the server receives that request, it will process and respond to the user's information.
 
 Everything works well when a hacker comes.
-![avatar](/dev-noob/photos/how-https-works/2.png)
+![avatar](/photos/how-https-works/2.png)
 
 Because HTTP transfers data only in plain text, hackers can catch this data, and it's very dangerous for confidential data such as passwords, credit card numbers, etc. So how do we prevent hackers from stealing data?
 
@@ -55,7 +55,7 @@ Because HTTP transfers data only in plain text, hackers can catch this data, and
 To prevent data from being stolen, it must be encrypted( like a box locked by a key), and anyone who has a key can open a box. HTTPS does the same thing; the `S` letter in HTTPS means `Secure`. HTTPS uses SSL (Secure Sockets Layer) to encrypt data when transferred on the internet, so even if a hacker can catch this data, they can't read it.
 
 Look how HTTPS works.
-![avatar](/dev-noob/photos/how-https-works/3.png)
+![avatar](/photos/how-https-works/3.png)
 
 1. The user wants to access the domain example.com via https, so the browser sends a request to the server.
 2. The server said, "Ok, I will give you my certificate and public key."
