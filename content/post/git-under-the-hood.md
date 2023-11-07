@@ -82,7 +82,7 @@ For example, I have a directory like this
 
 Let's commit those files to see what happen
 ![avatar](/photos/git-under-the-hood/image-11.png)
-Take a look at this graph, we can see that, Git structure our commit quite similar to working directory. The first `tree` node is a snapshot of our working directory and `commit` node will point to that `tree` node. Now let’s assume that I change the `index.js` file and commit again
+Take a look at this graph, we can see that, Git structure our commit quite similar to working directory. The `tree(ef88c...)` node is a snapshot of our working directory and `commit(bd012...)` node will point to `tree(ef88c...)` node. Now let’s assume that I change the `index.js` file and commit again
 ![avatar](/photos/git-under-the-hood/image-12.png)
 Since the content of `index.js` has  changed so its SHA-1 also been changed. That why git create another blob. One thing we should notice here is that why Git won't create another blob of `config.js` and `database.js`? 
 
@@ -92,11 +92,28 @@ It's quite easy to figure out from `index.js`.
 - `config.js` => Content remain => SHA-1 remain => Old blob
 - `database.js` => Content remain => SHA-1 remain => Old blob
 
-Since the content of `config.js` and `database.js` didn't change, Git only need point the `tree(SHA-1)` to `tree(SHA-1)`.
+Since the content of `config.js` and `database.js` didn't change, Git only need point the `tree(z123a...)` to `tree(012pq...)`.
 
 How about delete `config.js`?
+![avatar](/photos/git-under-the-hood/image-13.png)
 
+Let's repeat above steps
+- `index.js` => Content changed => SHA-1 changed => New blob
+- `database.js` => Content remain => SHA-1 remain => Old blob
+- `config.js` => Deleted => No blob
+
+Notice that SHA-1 of `tree(012pq...)` made from SHA-1 of `blob(76mb6...)` and `blob(445zx...)` so any of those blob changed lead to change SHA-1 of `tree`. Since we deleted `config.js` so Git will create another tree that only need to point to `blob(445zx)`(database.js). The cool thing here is that even thought we deleted `config.js` but it's actually still being stored in Git database. When we back to `commit 1` or `commit 2`, we can still get `config.js`.
 ## `.git` folder
+Have you ever tried to figure out what inside of it? If not, try with me.
+
+![avatar](/photos/git-under-the-hood/image-14.png)
+
+Here is what inside `.git` folder. We should care about 3 things:  `objects`, `refs` and `HEAD`.
+
+### objects
+As I mentioned early, objects just like a database of Git, it store blobs, trees and commits.
+
+Let's create a commit
 
 
 
