@@ -8,7 +8,7 @@ author: "Me"
 # author: ["Me", "You"] # multiple authors
 showToc: true
 TocOpen: false
-draft: true
+draft: false
 hidemeta: false
 comments: false
 description: "Desc Text."
@@ -114,6 +114,68 @@ Here is what inside `.git` folder. We should care about 3 things:  `objects`, `r
 As I mentioned early, objects just like a database of Git, it store blobs, trees and commits.
 
 Let's create a commit
+![avatar](/photos/git-under-the-hood/image-15.png)
+![avatar](/photos/git-under-the-hood/image-16.png)
 
+Done. We've already create a `commit`. Let's what happened inside `objects` folder 
+![avatar](/photos/git-under-the-hood/image-17.png)
 
+As you can see, after we created a `commit`. There are 3 folders and 3 files appear in `objects` folder. These are basically Git's objects. Let's back to our previous commit
+![avatar](/photos/git-under-the-hood/image-18.png)
+The SHA-1 of the commit is `c1123dd` and it's similar to path `c1/123dd..` in `objects` folder. I think you can figure out that is where Git store our commit. If you remember, we all know that `commit` point to a `tree` and `tree` point to other `tree` and `blob`. So where is our `tree` and `blob` in the `objects` folder. Git provide us a cool low-level command to interact more with Git is `git cat-file`. Let's try with our commit first
+```bash
+git cat-file -p c1123dd
+```
+This is the content of our commit
+![avatar](/photos/git-under-the-hood/image-19.png)
+It shows that `author` and `committer` is me, commit's message is `Commit 1` and the `tree` that the commit is pointing to. 
+Try one more time with a tree
+```bash
+git cat-file -p 10a773
+```
+This is the content of the tree
+![avatar](/photos/git-under-the-hood/image-20.png)
+It shows that the `tree` is pointing to a `blob` and that is our `index.js` file.
+Finally, let's see what inside the `blob`
+```bash
+git cat-file -p 802992
+```
+![avatar](/photos/git-under-the-hood/image-21.png)
+Nothing surprise, `blob` is only store the content of `index.js` file.
+
+Let's recap with a graph for easy to understand
+![avatar](/photos/git-under-the-hood/image-22.png)
+
+## refs
+When working with Git, we will face with the term `branches` a lot. So what is branches?
+Branches is nothing but a reference name of the latest commit. Back to our terminal, let's see what is our current branch
+
+```bash
+git branch
+```
+![avatar](/photos/git-under-the-hood/image-23.png)
+See that our current branch is `master`. But where does Git store branches? It's `refs` folder. Let's take a look at `refs` folder.
+![avatar](/photos/git-under-the-hood/image-24.png)
+In `refs` folder, Git store 2 things: `heads` and `tags`
+- heads is where Git store branches
+- tags is where Git store tags
+
+Technically, both branches and tags are pointing to a commit. 
+![avatar](/photos/git-under-the-hood/image-25.png)
+
+Can you figure out what is the content of this file? Yes, that in the SHA-1 of `Commit 1`. 
+How about create new branch?
+![avatar](/photos/git-under-the-hood/image-26.png)
+The same with `master` branch, the `new-branch` still store the SHA-1 of `Commit 1`.
+
+**Quick recap**
+> **Branches is nothing but a reference name to the latest commit**
+
+## HEAD
+There is a mystery that you and I wonder when first time using Git: "How Git now what is our current branch?". After a bunch of researches, i've known that Git uses a special pointer called `HEAD` to keep track of branches. Back to the `.git` folder 
+![avatar](/photos/git-under-the-hood/image-17.png)
+There is a file called `HEAD`. If we `cat` that file, we can see that it basically store a path which references to a `branch`
+![avatar](/photos/git-under-the-hood/image-27.png)
+
+It's important to notice that the main idea of `HEAD` is pointing to a commit. The common pattern we see is `HEAD` => `branches` => `commit`. Since the `branches` point to a `commit` so  `HEAD` points to `branches` is the same for `HEAD` points to `commit`. But in some case, `HEAD` can directly point to a `commit`, this case we call `detached` mode.
 
