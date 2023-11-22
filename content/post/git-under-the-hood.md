@@ -146,7 +146,7 @@ Nothing surprise, `blob` is only store the content of `index.js` file.
 Let's recap with a graph for easy to understand
 ![avatar](/photos/git-under-the-hood/image-22.png)
 
-## refs
+### refs
 When working with Git, we will face with the term `branches` a lot. So what is branches?
 Branches is nothing but a reference name of the latest commit. Back to our terminal, let's see what is our current branch
 
@@ -171,11 +171,14 @@ The same with `master` branch, the `new-branch` still store the SHA-1 of `Commit
 **Quick recap**
 > **Branches is nothing but a reference name to the latest commit**
 
-## HEAD
+### HEAD
 There is a mystery that you and I wonder when first time using Git: "How Git now what is our current branch?". After a bunch of researches, i've known that Git uses a special pointer called `HEAD` to keep track of branches. Back to the `.git` folder 
 ![avatar](/photos/git-under-the-hood/image-17.png)
 There is a file called `HEAD`. If we `cat` that file, we can see that it basically store a path which references to a `branch`
 ![avatar](/photos/git-under-the-hood/image-27.png)
 
 It's important to notice that the main idea of `HEAD` is pointing to a commit. The common pattern we see is `HEAD` => `branches` => `commit`. Since the `branches` point to a `commit` so  `HEAD` points to `branches` is the same for `HEAD` points to `commit`. But in some case, `HEAD` can directly point to a `commit`, this case we call `detached` mode.
+
+## Recap
+In this article, I've already show you behind the scene of Git. From now on, when take about Git we should only care about `BLOB`, `TREE` and `COMMIT`. We also know what `HEAD` pointer is, in next article i will dive deep into `HEAD` pointer so that we won't scare it anymore. It's quite long for this article, i hope that you can get useful information from it. See you in my next article.
 
