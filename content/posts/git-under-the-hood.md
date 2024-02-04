@@ -1,7 +1,7 @@
 ---
 title: "Git Under the Hood"
 date: 2023-11-03T08:55:26+07:00
-# weight: 1
+weight: 2
 # aliases: ["/first"]
 tags: ["git"]
 author: "Me"

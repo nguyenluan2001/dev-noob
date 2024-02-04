@@ -5,13 +5,9 @@ draft: false
 ---
 <!-- ![avatar](/dev-noob/photos/avatar.png) -->
 <!-- sdfsdf <img src="/dev-noob/photos/avatar.png" style="width:200px"> sdfsdf -->
-Hello i'm Luan Nguyen. I'm currently working as a software engineer at [SMARTR.CO](https://smartr.co). **dev-noob** is where i share my journey in IT world from a noob to pro. Currently, i'm focusing in web developer and dsa. In the future, i will explore more interest topics such as AWS, AI and Blockchain. Follow me to learn more new things. 
-### Languages and Tools :
-- Reactjs
-- Nextjs
-- Nodejs
-- Git
-- Linux
-- AWS
-- Postgresql
-- DSA
+Hello i'm **Luan Nguyen**. I'm currently working as a software engineer. **dev-noob** is where i share my journey in IT world from a noob to pro. Currently, i'm focusing in web developer. Hoping my sharing is worth for you. Follow me to learn more new things. 
+### Here is what i'm using:
+- **Languages**: ReactJS, NextJS, NodeJS
+- **Databases**: Postgresql
+- **Clouds**: AWS
+- **Others**: Linux, Git, Vim, DSA

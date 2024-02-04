@@ -61,10 +61,10 @@ params:
 
   # profile-mode
   profileMode:
-    enabled: false # needs to be explicitly set
-    title: dev-noob
-    subtitle: "This is subtitle"
-    imageUrl: "photos/noob.jpg"
+    enabled: true # needs to be explicitly set
+    title: Welcome to devnoob!!!
+    # subtitle: "This is subtitle"
+    imageUrl: "photos/coding.png"
     imageWidth: 120
     imageHeight: 120
     imageTitle: my image
@@ -79,13 +79,13 @@ params:
     Title: "Hi there \U0001F44B"
     Content: Welcome to dev-noob where i share my journey from a noob to conquer big tech 
 
-#   socialIcons:
-#     - name: twitter
-#       url: "https://twitter.com/"
-#     - name: stackoverflow
-#       url: "https://stackoverflow.com"
-#     - name: github
-#       url: "https://github.com/"
+  socialIcons:
+    - name: github
+      url: "https://github.com/nguyenluan2001"
+    - name: leetcode
+      url: "https://leetcode.com/ntluan0301/"
+    - name: linkedin
+      url: "https://www.linkedin.com/in/nguy%E1%BB%85n-lu%C3%A2n-9b99691a0/"
 
   analytics:
     google:
